@@ -10,6 +10,33 @@ include_once 'nav.php';
 //include Brews Database
 include_once 'brewsDB_connection.php';
 
+//update database with table form
+if (isset($_POST['overallupdate'])) {
+
+$connection->select_db('brews');
+
+//input variables
+$brewID = $_POST['brewID'];
+$status = $_POST['status'];
+$nextstep = $_POST['nextstep'];
+$secdate = $_POST['secdate'];
+$dryhopdate = $_POST['dryhopdate'];
+$bottleddate = $_POST['bottleddate'];
+$cap = $_POST['cap'];
+$fg = $_POST['fg'];
+$brewgone = $_POST['brewgone'];
+
+$sql = "UPDATE brews SET status = '$status', nextstep = '$nextstep', secdate = '$secdate', dryhopdate = '$dryhopdate', bottleddate = '$bottleddate', cap = '$cap', fg = '$fg', brewgone = '$brewgone' WHERE brewID = '$brewID'";
+
+$result = mysqli_query($connection, $sql);
+
+if ($result === TRUE) {
+	echo "Brew Updated";
+} else {
+	echo "no update" . $connection->error;
+}
+}
+
 $pagename = $_GET['brew'];
 
 $sql = "SELECT *,
@@ -105,7 +132,10 @@ if ($result->num_rows > 0) {
 		}
 	echo '<div class="panel panel-default">
 		<table class="table table-bordered">
-			<form>';
+			<form id="overallUpdate" method="post" action="details.php">
+				<input type="hidden" name="brewID" value="' . $data['brewID'] . '">
+				<input type="hidden" name="status" value="">
+				<input type="hidden" name="nextstep" value="">';
 			// output data of each row
 			echo '<tr>
 				<td>Status</td>
@@ -141,7 +171,7 @@ if ($result->num_rows > 0) {
 				if ($data['nextstep'] != "secondary") {
 					echo date("m/d/Y", strtotime($data["secdate"]));
 				} else {
-					echo '<input type="date" class="form-control" id="secdate">';
+					echo '<input type="date" class="form-control" name="secdate" id="secdate">';
 				}
 				echo '</td>
 			</tr>';
@@ -154,7 +184,7 @@ if ($result->num_rows > 0) {
 				<td>Dry Hop Date</td>
 				<td class="text-center">';
 				if ($data["tildryhop"] > 0 && $data["nextstep"] == "dryhop") {
-					echo '<input type="date" class="form-control" id="dryhopdate">';
+					echo '<input type="date" class="form-control" name="dryhopdate" id="dryhopdate">';
 				} else if ($data["status"] == "Dryhopped") {
 						echo date("m/d/Y", strtotime($data["dryhopdate"]));
 				} else {
@@ -170,9 +200,19 @@ if ($result->num_rows > 0) {
 			echo '<td>Bottled Date</td>
 				<td class="text-center">';
 				if ( $data["status"] != "Bottled") {
-					echo '<input type="date" class="form-control" id="bottleddate">';
+					echo '<input type="date" class="form-control" name="bottleddate" id="bottleddate">';
 				} else {
 					echo date("m/d/Y", strtotime($data["bottleddate"]));
+				}
+				echo '</td>
+			</tr>
+			<tr>
+				<td>Cap Marking</td>
+				<td class="text-center">';
+				if ( $data["status"] != "Bottled") {
+					echo '<input type="text" class="form-control" name="cap" id="cap">';
+				} else {
+					echo $data["cap"];
 				}
 				echo '</td>
 			</tr>
@@ -180,7 +220,7 @@ if ($result->num_rows > 0) {
 				<td>Final Gravity</td>
 				<td class="text-center">';
 				if ( $data["status"] != "Bottled") {
-					echo '<input type="number" class="form-control" id="fg">';
+					echo '<input type="number" class="form-control" name="fg" id="fg">';
 				} else {
 					echo $data['fg'];
 				}
@@ -189,7 +229,13 @@ if ($result->num_rows > 0) {
 			<tr>
 				<td>Last Bottle Gone</td>
 				<td class="text-center">
-					<input type="date" class="form-control" id="brewgone" value="' . $data['brewgone'] . '">
+					<input type="date" class="form-control" name="brewgone" id="brewgone" value="' . $data['brewgone'] . '">
+				</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>
+					<button type="submit" class="btn btn-block btn-primary" name="overallupdate">Update</button>
 				</td>
 			</tr>';
     echo '</form></table></div></div></div>';
