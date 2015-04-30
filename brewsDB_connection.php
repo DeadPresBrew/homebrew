@@ -16,4 +16,5 @@ $connection = new MySQLi($servername, $username, $password, $dbname);
 if($connection->connect_error) {
 	die("404 ERROR HERE Connection Failed: " . $connection->connect_error);
 }
+//Shouldn't matter
 ?>
