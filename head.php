@@ -9,8 +9,6 @@
     <script type="text/javascript" src="js/dropdown.js"></script>
     <script type="text/javascript" src="js/modal.js"></script>
     <script type="text/javascript" src="js/collapse.js"></script>
-    <script type="text/JavaScript" src="js/sha512.js"></script>
-    <script type="text/javascript" src="js/forms.js"></script>
     <script src="http://cdn.zingchart.com/zingchart.min.js"></script>
 	<script type="text/javascript">
 		$(function () {
