@@ -15,7 +15,8 @@
       	<form action="schedule.php" method="post" id="updateSecDate">
             <input type="hidden" name="brewID" value="<?php echo $row['brewID']; ?>">
             <input type="hidden" name="nextstep" value="<?php if( $row['tildryhop'] > 0) { echo "dryhop"; } else { echo "bottle";} ?>">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <input type="hidden" name="secdate" value="<?php echo date("Y-m-d"); ?>">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
             <button type="submit" name="updateSecDate" class="btn btn-success">Save</button>
       	</form>
       </div>

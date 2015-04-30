@@ -4,6 +4,11 @@ $username = "root";
 $password = "beer4a11";
 $dbname = "rtravers_brews";
 
+define("CAN_REGISTER", "any");
+define("DEFAULT_ROLE", "brewer");
+
+define("SECURE", FALSE);
+
 //Create Connection
 $connection = new MySQLi($servername, $username, $password, $dbname);
 

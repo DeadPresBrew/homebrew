@@ -28,9 +28,21 @@ VALUES ('$name','$status','$nextstep','$type','$style','$brewdate','$tilsec','$t
 $result = mysqli_query($connection, $sql);
 
 if ($result === TRUE) {
-	echo "Brew Added";
+	echo '<div class="row">
+		<div class="col-sm-4 col-sm-offset-4">
+			<div class="alert alert-success" role="alert">
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			<b>Wohoo!</b> The brew was added.</div>
+		</div>
+	</div>';
 } else {
-	echo "no brew" . $connection->error;
+	echo '<div class="row">
+		<div class="col-sm-4 col-sm-offset-4">
+			<div class="alert alert-danger" role="alert">
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			<b>Uh-Oh!</b> There was a problem adding the brew.' . $connection->error . '</div>
+		</div>
+	</div>';
 }
 }
 ?>
@@ -99,7 +111,7 @@ if ($result === TRUE) {
                         </div>
 
                         <label for="tilsec" class="col-xs-3 control-label">Til Secondary</label>
-                        <div class="col-xs-2">
+                        <div class="col-xs-3">
                         	<input type="number" class="form-control  required" id="tilsec" name="tilsec">
                         </div>
                     </div>
@@ -110,17 +122,17 @@ if ($result === TRUE) {
                         </div>
                             
                         <label for="tildryhop" class="col-xs-3 control-label">Til Dryhop</label>
-                        <div class="col-xs-2">
+                        <div class="col-xs-3">
                         	<input type="number" class="form-control required" id="tildryhop" name="tildryhop">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="tilbottle" class="col-xs-3 control-label">Til Bottle</label>
-                        <div class="col-xs-2">
+                        <div class="col-xs-3">
                         	<input type="number" class="form-control  required" id="tilbottle" name="tilbottle">
                         </div>
 
-                        <label for="og" class="col-xs-3 control-label">Original Gravity</label>
+                        <label for="og" class="col-xs-2 control-label">O.G.</label>
                         <div class="col-xs-3">
                         	<input type="number" class="form-control" id="og" name="og" placeholder="1.050">
                         </div>

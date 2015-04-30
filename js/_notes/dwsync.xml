@@ -14,4 +14,10 @@
 <file name="tab.js" server="C:/wamp/www/" local="130661662281186837" remote="130661662280000000" Dst="1" />
 <file name="tooltip.js" server="C:/wamp/www/" local="130661662281386849" remote="130661662280000000" Dst="1" />
 <file name="transition.js" server="C:/wamp/www/" local="130661662281536857" remote="130661662280000000" Dst="1" />
+<file name="bootstrap-toggle.min.js" server="ftp.ryantravers.com/public_html/beer/" local="130730684442069360" remote="130742964000000000" Dst="2" />
+<file name="button.js" server="ftp.ryantravers.com/public_html/beer/" local="130661662280186780" remote="130742964000000000" Dst="2" />
+<file name="collapse.js" server="ftp.ryantravers.com/public_html/beer/" local="130661662280486797" remote="130742964000000000" Dst="2" />
+<file name="dpb.js" server="ftp.ryantravers.com/public_html/beer/" local="130684178273128678" remote="130742964000000000" Dst="2" />
+<file name="modal.js" server="ftp.ryantravers.com/public_html/beer/" local="130661662280806815" remote="130742964000000000" Dst="2" />
+<file name="dropdown.js" server="ftp.ryantravers.com/public_html/beer/" local="130661662280626805" remote="130742964000000000" Dst="2" />
 </dwsync>

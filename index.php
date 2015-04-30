@@ -6,19 +6,24 @@
 include_once 'nav.php';
 ?>
 <div class="container">
-<div class="col-sm-4 col-sm-offset-8">
+<div class="col-sm-6 col-sm-offset-3">
 <?php
 //include Brews Database
 include_once 'brewsDB_connection.php';
 
-$sql = "SELECT name, cap FROM brews WHERE status = 'bottled' AND brewgone = '0000-00-00'";
+$sql = "SELECT * FROM brews WHERE status = 'bottled'";
 $result = $connection->query($sql);
 
 if ($result->num_rows > 0) {
-    echo "<div class='panel panel-default'><table class='table table-bordered'><tr><th>Name</th><th>Cap Marking</th></tr>";
+    echo "<div class='panel panel-default'><table class='table table-hover'><tr class='bg-primary'><th>Name</th><th>Cap Marking</th><th>Beer Type</th><th>Beer Style</th></tr>";
     // output data of each row
     while($row = $result->fetch_assoc()) {
-        echo "<tr><td>".$row['name']."</td><td>".$row['cap'] . "</td></tr>";
+        echo "<tr>";
+		echo "<td>" . $row['name'] . "</td>";
+		echo "<td class='text-center'>" . $row['cap'] . "</td>";
+		echo "<td>" . $row['type'] . "</td>";
+		echo "<td>" . $row['style'] . "</td>";
+		echo "</tr>";
     }
     echo "</table></div>";
 } else {
