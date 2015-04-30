@@ -42,5 +42,6 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
-# Databases to ignore
+# Files to ignore
+Connections/*
 brewsDB_connection.php
