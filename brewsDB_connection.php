@@ -1,8 +1,8 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "beer4a11";
-$dbname = "rtravers_brews";
+$servername = "";
+$username = "";
+$password = "";
+$dbname = "";
 
 define("CAN_REGISTER", "any");
 define("DEFAULT_ROLE", "brewer");
