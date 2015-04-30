@@ -338,7 +338,7 @@ if ($result->num_rows > 0) {
 					</tr>
 					<tr>
 					<td>Final Gravity</td>
-					<td><input type="text" id="fg" name="fg" class="form-control" disabled></td>
+					<td><input type="text" step="0.001" id="fg" name="fg" class="form-control" disabled></td>
 					</tr>';
 			} else {
 				echo '<td class="text-center">' . date("m/d/Y", strtotime($row["bottleddate"])) . '</td></tr>';

@@ -134,7 +134,7 @@ if ($result === TRUE) {
 
                         <label for="og" class="col-xs-2 control-label">O.G.</label>
                         <div class="col-xs-3">
-                        	<input type="number" class="form-control" id="og" name="og" placeholder="1.050">
+                        	<input type="number" step="0.001" class="form-control" id="og" name="og" placeholder="1.050">
                         </div>
                     </div>
                     <div class="form-group">

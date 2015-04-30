@@ -23,7 +23,7 @@
             <div class="form-group">                
                 <label class="control-label col-sm-3" for="fg">Final Gravity</label>
                 <div class="col-sm-9">
-                    <input type="text" name="fg" class="form-control" id="fg">
+                    <input type="number" step="0.001" name="fg" class="form-control" id="fg">
                 </div>
             </div>
       </div>
