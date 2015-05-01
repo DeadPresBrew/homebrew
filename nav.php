@@ -20,6 +20,7 @@ include_once 'brewsDB_connection.php';
 					<li><a href="review.php">Review</a></li>
 				</ul>
 				<a href="addbrew.php" type="button" class="btn btn-primary navbar-btn">Add Brew</a>
+                <a href="rollcall.php" type="button" class="btn btn-primary navbar-btn">Take Attendance</a>
 				<ul class="nav navbar-nav navbar-right">
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Stats <span class="caret"></span></a>
