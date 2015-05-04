@@ -44,7 +44,14 @@ if ($result === TRUE) {
 }
 }
 
-$secinfo = "SELECT *, ((brewdate+tilsec)-curdate()) as daystosec FROM brews WHERE nextstep = 'secondary'";
+$secinfo = "SELECT *,
+CASE
+WHEN status = 'brewed'
+THEN DATEDIFF(DATE_ADD(brewdate, INTERVAL tilsec DAY), curdate())
+END AS daystosec
+
+FROM brews WHERE nextstep = 'secondary'";
+
 $result = $connection->query($secinfo);
 
 if ($result->num_rows > 0) {
