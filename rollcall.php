@@ -51,66 +51,66 @@ if ($result === TRUE) {
     	<h1 class="text-center">Roll Call</h1>   
     	<form id="rollcall" action="rollcall.php" class="form-horizontal" method="post">
         	<div class="form-group">
-            	<label for="date" class="col-sm-4 control-label">Date</label>
-                <div class="col-sm-8">
+            	<label for="date" class="col-xs-4 control-label">Date</label>
+                <div class="col-xs-8">
                 	<input type="date" id="date" class="form-control" name="date">
                 </div>
             </div>
         	<div class="form-group">
-            	<div class="col-sm-4 text-center">Name</div>
-            	<div class="col-sm-4 text-center">Present?</div>
-            	<div class="col-sm-4 text-center">Eat?</div>
+            	<div class="col-xs-4 text-center">Name</div>
+            	<div class="col-xs-4 text-center">Present?</div>
+            	<div class="col-xs-4 text-center">Eat?</div>
             </div>
         	<div class="form-group">
-            	<label for="kiel" class="col-sm-4 control-label">Kiel</label>
-                <div class="col-sm-4">
+            	<label for="kiel" class="col-xs-4 control-label">Kiel</label>
+                <div class="col-xs-4">
                 	<input type="hidden" name="kiel" value="0">
                 	<input type="checkbox" data-toggle="toggle" data-on="yes" data-off="no" data-onstyle="success" data-offstyle="danger" id="kiel" name="kiel" class="allhere" value="1">
                 </div>
-                <div class="col-sm-4">
+                <div class="col-xs-4">
                 	<input type="hidden" name="kieleat" value="0">
                 	<input type="checkbox" data-toggle="toggle" data-on="yes" data-off="no" data-onstyle="success" data-offstyle="danger" id="kieleat" name="kieleat" class="allate" value="1">
                 </div>
             </div>
             <div class="form-group">
-            	<label for="ryan" class="col-sm-4 control-label">Ryan</label>
-                <div class="col-sm-4">
+            	<label for="ryan" class="col-xs-4 control-label">Ryan</label>
+                <div class="col-xs-4">
                 	<input type="hidden" name="ryan" value="0">
                 	<input type="checkbox" data-toggle="toggle" data-on="yes" data-off="no" data-onstyle="success" data-offstyle="danger" id="ryan" name="ryan" class="allhere" value="1">
                 </div>
-                <div class="col-sm-4">
+                <div class="col-xs-4">
                 	<input type="hidden" name="ryaneat" value="0">
                 	<input type="checkbox" data-toggle="toggle" data-on="yes" data-off="no" data-onstyle="success" data-offstyle="danger" id="ryaneat" name="ryaneat" class="allate" value="1">
                 </div>
             </div>
             <div class="form-group">
-            	<label for="josh" class="col-sm-4 control-label">Josh</label>
-                <div class="col-sm-4">
+            	<label for="josh" class="col-xs-4 control-label">Josh</label>
+                <div class="col-xs-4">
                 	<input type="hidden" name="josh" value="0">
                 	<input type="checkbox" data-toggle="toggle" data-on="yes" data-off="no" data-onstyle="success" data-offstyle="danger" id="josh" name="josh" class="allhere" value="1">
                 </div>
-                <div class="col-sm-4">
+                <div class="col-xs-4">
                 	<input type="hidden" name="josheat" value="0">
                 	<input type="checkbox" data-toggle="toggle" data-on="yes" data-off="no" data-onstyle="success" data-offstyle="danger" id="josheat" name="josheat" class="allate" value="1">
                 </div>
             </div>
             <div class="form-group">
-            	<label for="frank" class="col-sm-4 control-label">Frank</label>
-                <div class="col-sm-4">
+            	<label for="frank" class="col-xs-4 control-label">Frank</label>
+                <div class="col-xs-4">
                 	<input type="hidden" name="frank" value="0">
                 	<input type="checkbox" data-toggle="toggle" data-on="yes" data-off="no" data-onstyle="success" data-offstyle="danger" id="frank" name="frank" class="allhere" value="1">
                 </div>
-                <div class="col-sm-4">
+                <div class="col-xs-4">
                 	<input type="hidden" name="frankeat" value="0">
                 	<input type="checkbox" data-toggle="toggle" data-on="yes" data-off="no" data-onstyle="success" data-offstyle="danger" id="frankeat" name="frankeat" class="allate" value="1">
                 </div>
             </div>
             <div class="form-group">
-            	<div class="col-sm-4 col-sm-offset-4">
+            	<div class="col-xs-4 col-xs-offset-4">
 	            	<button class="btn btn-success allpresent" onClick="toggleHere(); return false;" id="allhere">All Here!</button>
                     <button class="btn btn-danger hidden allpresent" onClick="toggleGone(); return false;" id="allgone">No One</button>
                 </div>
-                <div class="col-sm-4">
+                <div class="col-xs-4">
 	            	<button class="btn btn-success allfood" onClick="toggleAte(); return false;" id="allate">All Ate</button>
                     <button class="btn btn-success hidden allfood" onClick="toggleEaten(); return false;" id="alleaten">No Eats</button>
                 </div>

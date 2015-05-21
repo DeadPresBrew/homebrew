@@ -152,7 +152,7 @@ $bottleddate = $_POST['bottleddate'];
 $cap = $_POST['cap'];
 $fg = $_POST['fg'];
 
-$sql = "UPDATE brews SET status = 'bottled' , nextstep = 'drink' , bottleddate = '$bottleddate', cap = '$cap', fg = '$fg' WHERE brewID = '$brewID'";
+$sql = "UPDATE brews SET status = 'bottled' , nextstep = 'drink' , bottleddate = '$bottleddate', cap = '$cap', fg = '$fg', actualABV = ((actualOG-fg)*131.25), targetABV = ((idealOG-fg)*131.25) WHERE brewID = '$brewID'";
 
 $result = mysqli_query($connection, $sql);
 

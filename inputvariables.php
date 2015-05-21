@@ -9,12 +9,14 @@ $brewdate = $_POST['brewdate'];
 $tilsec = $_POST['tilsec'];
 $tildryhop = $_POST['tildryhop'];
 $tilbottle = $_POST['tilbottle'];
-$og = $_POST['og'];
+$idealOG = $_POST['idealOG'];
+$actualOG = $_POST['actualOG'];
 $secddate = $_POST['secdate'];
 $dryhopdate = $_POST['dryhopdate'];
 $bottledate = $_POST['bottledate'];
 $fg = $_POST['fg'];
 $cap = $_POST['cap'];
-$abv = $_POST['abv'];
+$targetABV = $_POST['targetABV'];
+$actualABV = $_POST['actualABV'];
 $brewgone = $_POST['brewgone'];
 ?>

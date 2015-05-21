@@ -86,7 +86,7 @@ $bottleddate = $_POST['bottleddate'];
 $cap = $_POST['cap'];
 $fg = $_POST['fg'];
 
-$sql = "UPDATE brews SET status = 'bottled', nextstep = 'drink', bottleddate = '$bottleddate', cap = '$cap', fg = '$fg', abv = ((og-fg)*131.25) WHERE brewID = '$brewID'";
+$sql = "UPDATE brews SET status = 'bottled', nextstep = 'drink', bottleddate = '$bottleddate', cap = '$cap', fg = '$fg', actualABV = ((actualOG-fg)*131.25), targetABV = ((idealOG-fg)*131.25) WHERE brewID = '$brewID'";
 
 $result = mysqli_query($connection, $sql);
 
@@ -281,8 +281,12 @@ if ($result->num_rows > 0) {
 				<td class="text-center">' . $row['tilbottle'] . '</td>
 			</tr>
 			<tr>
-				<td>Original Gravity</td>
-				<td class="text-center">' . $row['og'] . '</td>
+				<td>Ideal Original Gravity</td>
+				<td class="text-center">' . $row['idealOG'] . '</td>
+			</tr>
+			<tr>
+				<td>Actual Original Gravity</td>
+				<td class="text-center">' . $row['actualOG'] . '</td>
 			</tr>';
 			if ($row['nextstep'] == "secondary" && $row['dtsec'] < 5) {
 				echo '<tr class="danger">';
@@ -351,8 +355,12 @@ if ($result->num_rows > 0) {
 					<td class="text-center">' . $row['fg'] . '</td>
 				</tr>
 				<tr>
-					<td>Alcohol By Volume</td>
-					<td class="text-center">' . $row['abv'] . '</td>
+					<td>Target ABV</td>
+					<td class="text-center">' . $row['targetABV'] . '</td>
+				</tr>
+				<tr>
+					<td>Actual ABV</td>
+					<td class="text-center">' . $row['actualABV'] . '</td>
 				</tr>';
 			}
 			echo '<tr>

@@ -9,14 +9,12 @@
 	
 	$sql = "SELECT *,
 	
-	(@row:=@row+1) AS row,
-	
 	(kiel + ryan + josh + frank) AS present,
 	
 	DATE_FORMAT(DATE(date), '%m/%d')
 	AS bpdate
 	
-	FROM attendance, (SELECT @row :=0) r
+	FROM attendance
 	ORDER BY date";
 	
 	$data = $connection->query($sql);
@@ -66,17 +64,17 @@
 	}
 	?>];
 	<?php
-		$sql = "SELECT brews.name
+		$sql = "SELECT attendance.date, GROUP_CONCAT(brews.name) as gr_name
 		FROM brews
 		RIGHT JOIN attendance
 		ON brews.brewdate=attendance.date
+		GROUP BY attendance.date
 		ORDER BY attendance.date";
 		$names = $connection->query($sql);
 	?>
 	var namebrewed=[<?php
-	while($info=mysqli_fetch_array($names))  {
-		echo '"'.$info['name'].'",';
-		//echo '"'.$info['name'].'",';
+	while($info=mysqli_fetch_array($names)) {
+		echo '"' . $info['gr_name'] . '",';	
 	}
 	?>];
 	<?php
@@ -93,6 +91,20 @@
 	}
 	?>];
 	<?php
+		$sql = "SELECT attendance.date, GROUP_CONCAT(brews.name) as gr_name
+		FROM brews
+		RIGHT JOIN attendance
+		ON brews.secdate=attendance.date
+		GROUP BY attendance.date
+		ORDER BY attendance.date";
+		$names = $connection->query($sql);
+	?>
+	var namesecnd=[<?php
+	while($info=mysqli_fetch_array($names)) {
+		echo '"' . $info['gr_name'] . '",';	
+	}
+	?>];
+	<?php
 		$sql = "SELECT COUNT(brews.dryhopdate) AS dryhopped
 		FROM brews
 		RIGHT JOIN attendance
@@ -103,6 +115,20 @@
 	var dryhopped=[<?php
 	while($info=mysqli_fetch_array($events)) {
 		echo $info['dryhopped'].',';
+	}
+	?>];
+	<?php
+		$sql = "SELECT attendance.date, GROUP_CONCAT(brews.name) as gr_name
+		FROM brews
+		RIGHT JOIN attendance
+		ON brews.dryhopdate=attendance.date
+		GROUP BY attendance.date
+		ORDER BY attendance.date";
+		$names = $connection->query($sql);
+	?>
+	var namedhped=[<?php
+	while($info=mysqli_fetch_array($names)) {
+		echo '"' . $info['gr_name'] . '",';	
 	}
 	?>];
 	<?php
@@ -118,23 +144,37 @@
 		echo $info['bottled'].',';
 	}
 	?>];
+	<?php
+		$sql = "SELECT attendance.date, GROUP_CONCAT(brews.name) as gr_name
+		FROM brews
+		RIGHT JOIN attendance
+		ON brews.bottleddate=attendance.date
+		GROUP BY attendance.date
+		ORDER BY attendance.date";
+		$names = $connection->query($sql);
+	?>
+	var namebotld=[<?php
+	while($info=mysqli_fetch_array($names)) {
+		echo '"' . $info['gr_name'] . '",';	
+	}
+	?>];
 </script>
 <?php $connection->close(); ?>
-<div id="myChart"></div>
+<div class="container">
+<div id="attendance" class="col-sm-12"></div>
 
 <script type="text/javascript">
 window.onload=function(){
     zingchart.render({
-        id:"myChart",
+        id:"attendance",
         width:"100%",
         height:400,
         data:{
         "type":"mixed",
 		"stacked":true,
-        "title":{
-            "text":"Brew-tendance"
-        },
 		"legend":{
+			"layout":"x5",
+			"position":"50% 100%"
 		},
         "scale-x":{
             "labels":dates
@@ -142,6 +182,7 @@ window.onload=function(){
         "series":[
 			{	"values":brewed,
 				"stack":1,
+				"background-color":"#337AB7",
 				"type":"bar",
 				"text":"Brewed",
 				"data-brewed":namebrewed,
@@ -151,22 +192,39 @@ window.onload=function(){
 			},
 			{	"values":seconded,
 				"stack":1,
+				"background-color":"#719DC3",
 				"type":"bar",
-				"text":"Seconded"
+				"text":"Seconded",
+				"data-secnd":namesecnd,
+				"tooltip":{
+					"text":"%data-secnd"
+				}
 			},
 			{	"values":dryhopped,
 				"stack":1,
+				"background-color":"#61B6FF",
 				"type":"bar",
-				"text":"Dry Hopped"
+				"text":"Dry Hopped",
+				"data-dhped":namedhped,
+				"tooltip":{
+					"text":"%data-dhped"
+				}
 			},
 			{	"values":bottled,
 				"stack":1,
+				"background-color":"#13426A",
 				"type":"bar",
-				"text":"Bottled"
+				"text":"Bottled",
+				"data-botld":namebotld,
+				"tooltip":{
+					"text":"%data-botld"
+				}
+				
 			},
 			{	"values":present,
 				"type":"line",
 				"stack":2,
+				"line-color":"#6A4408",
 				"text":"Present",
 				"data-bp":bp,
 				"tooltip":{
@@ -178,5 +236,6 @@ window.onload=function(){
     });
     };
 </script>
+</div><!--container-->
 </body>
 </html>

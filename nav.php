@@ -22,14 +22,15 @@ include_once 'brewsDB_connection.php';
 				<a href="addbrew.php" type="button" class="btn btn-primary navbar-btn">Add Brew</a>
                 <a href="rollcall.php" type="button" class="btn btn-primary navbar-btn">Take Attendance</a>
 				<ul class="nav navbar-nav navbar-right">
-					<li class="dropdown">
+                	<li><a href="attendance.php">Attendance</a></li>
+					<!--<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Stats <span class="caret"></span></a>
 						<ul class="dropdown-menu" role="menu">
 							<li><a href="/year-to-date.php">To Date</a></li>
 							<li><a href="/attendance.php">Attendance</a></li>
 							<li><a href="/yir.php">Beerly Review</a></li>
 						</ul>
-					</li>
+					</li>-->
                     <!--Show this <li> only when log in capabilites are avilable-->
                     <!--<li><a href="logout.php">Log Out</a></li>-->
 				</ul>
@@ -49,6 +50,5 @@ include_once 'brewsDB_connection.php';
                     <li><a href="#logInModal" data-toggle="modal" data-target="#logInModal">Log In</a></li>
 				</ul>-->
 			</div>
-            <?php include_once 'logInModal.php'; ?>
 	</div><!--container-->
 </nav>

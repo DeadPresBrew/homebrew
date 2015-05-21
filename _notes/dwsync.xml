@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <dwsync>
-<file name="schedule.php" server="ftp.ryantravers.com/public_html/beer/" local="130743604759213397" remote="130743604800000000" Dst="2" />
-<file name="head.php" server="ftp.ryantravers.com/public_html/beer/" local="130749014791951601" remote="130749016200000000" Dst="2" />
-<file name="nav.php" server="ftp.ryantravers.com/public_html/beer/" local="130684212841665885" remote="130742964600000000" Dst="2" />
+<file name="schedule.php" server="ftp.ryantravers.com/public_html/beer/" local="130767156010000000" remote="130767168600000000" Dst="2" />
+<file name="head.php" server="ftp.ryantravers.com/public_html/beer/" local="130752525845014377" remote="130754245200000000" Dst="2" />
+<file name="nav.php" server="ftp.ryantravers.com/public_html/beer/" local="130755007065189661" remote="130760932800000000" Dst="2" />
 <file name="brewsDB_connection.php" server="ftp.ryantravers.com/public_html/beer/" local="130731687522669313" remote="130742977200000000" Dst="2" />
 <file name="DhUpdateModal.php" server="ftp.ryantravers.com/public_html/beer/" local="130742853131722764" remote="130742964600000000" Dst="2" />
 <file name="BotUpdateModal.php" server="ftp.ryantravers.com/public_html/beer/" local="130749033409686474" remote="130749037800000000" Dst="2" />
 <file name="SecUpdateModal.php" server="ftp.ryantravers.com/public_html/beer/" local="130742853072009348" remote="130742964600000000" Dst="2" />
 <file name="brewDoneModal.php" server="ftp.ryantravers.com/public_html/beer/" local="130742854429516993" remote="130742964600000000" Dst="2" />
-<file name="addbrew.php" server="ftp.ryantravers.com/public_html/beer/" local="130749028317205201" remote="130749037800000000" Dst="2" />
-<file name="details.php" server="ftp.ryantravers.com/public_html/beer/" local="130749033434557897" remote="130749037800000000" Dst="2" />
+<file name="addbrew.php" server="ftp.ryantravers.com/public_html/beer/" local="130767165015525211" remote="130767168600000000" Dst="2" />
+<file name="details.php" server="ftp.ryantravers.com/public_html/beer/" local="130767155422006493" remote="130767168600000000" Dst="2" />
 <file name="index.php" server="ftp.ryantravers.com/public_html/beer/" local="130742996278260277" remote="130742996400000000" Dst="2" />
+<file name="rollcall.php" server="ftp.ryantravers.com/public_html/beer/" local="130750270164865587" remote="130750270200000000" Dst="2" />
+<file name="attendance.php" server="ftp.ryantravers.com/public_html/beer/" local="130754244055838022" remote="130754245200000000" Dst="2" />
+<file name="food.php" server="ftp.ryantravers.com/public_html/beer/" local="130760933804352847" remote="130760933400000000" Dst="2" />
 </dwsync>

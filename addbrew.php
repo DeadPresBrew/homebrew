@@ -20,10 +20,11 @@ $brewdate = $_POST['brewdate'];
 $tilsec = $_POST['tilsec'];
 $tildryhop = $_POST['tildryhop'];
 $tilbottle = $_POST['tilbottle'];
-$og = $_POST['og'];
+$idealOG = $_POST['idealOG'];
+$actualOG = $_POST['actualOG'];
 
-$sql = "INSERT INTO brews (name, status, nextstep, type, style, brewdate, tilsec, tildryhop, tilbottle, og)
-VALUES ('$name','$status','$nextstep','$type','$style','$brewdate','$tilsec','$tildryhop','$tilbottle','$og')";
+$sql = "INSERT INTO brews (name, status, nextstep, type, style, brewdate, tilsec, tildryhop, tilbottle, idealOG, actualOG)
+VALUES ('$name','$status','$nextstep','$type','$style','$brewdate','$tilsec','$tildryhop','$tilbottle', '$idealOG', '$actualOG')";
 
 $result = mysqli_query($connection, $sql);
 
@@ -110,7 +111,7 @@ if ($result === TRUE) {
                             <input type="checkbox" data-toggle="toggle" data-on="yes" data-off="no" data-onstyle="primary" data-offstyle="default" id="qsec" class="setns" checked>
                         </div>
 
-                        <label for="tilsec" class="col-xs-3 control-label">Til Secondary</label>
+                        <label for="tilsec" class="col-xs-3 control-label">Days in Primary</label>
                         <div class="col-xs-3">
                         	<input type="number" class="form-control  required" id="tilsec" name="tilsec">
                         </div>
@@ -121,20 +122,26 @@ if ($result === TRUE) {
                             <input type="checkbox" data-toggle="toggle" data-on="yes" data-off="no" data-onstyle="primary" data-offstyle="default" id="qdh" class="setns">
                         </div>
                             
-                        <label for="tildryhop" class="col-xs-3 control-label">Til Dryhop</label>
+                        <label for="tildryhop" class="col-xs-3 control-label">Days til Dryhop</label>
                         <div class="col-xs-3">
                         	<input type="number" class="form-control required" id="tildryhop" name="tildryhop">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="tilbottle" class="col-xs-3 control-label">Til Bottle</label>
+                        <label id="secLabel" for="tilbottle" class="col-xs-8 control-label">Days in Secondary</label>
                         <div class="col-xs-3">
                         	<input type="number" class="form-control  required" id="tilbottle" name="tilbottle">
                         </div>
-
-                        <label for="og" class="col-xs-2 control-label">O.G.</label>
+                    </div>
+                    <div class="form-group">
+                    	<label for="idealOG" class="col-xs-3 control-label"> Ideal O.G.</label>
                         <div class="col-xs-3">
-                        	<input type="number" step="0.001" class="form-control" id="og" name="og" placeholder="1.050">
+                        	<input type="number" step="0.001" class="form-control" id="idealOG" name="idealOG" placeholder="1.050">
+                        </div>
+
+                        <label for="actualOG" class="col-xs-2 control-label">Actual O.G.</label>
+                        <div class="col-xs-3">
+                        	<input type="number" step="0.001" class="form-control" id="actualOG" name="actualOG" placeholder="1.050">
                         </div>
                     </div>
                     <div class="form-group">
@@ -180,9 +187,11 @@ if ($result === TRUE) {
 		if ($('#qdh').is(":checked")) {
 			$('#tildryhop').prop('readonly', false);
 			$('#tildryhop').val("");
+			$('#secLabel').html("Days to Bottle after Dry Hopping");
 		} else {
 			$('#tildryhop').prop('readonly', true);
 			$('#tildryhop').val(-1);
+			$('#secLabel').html("Days in Secondary");
 		}
 
 	};
