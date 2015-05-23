@@ -11,7 +11,7 @@ include_once 'nav.php';
 //include Brews Database
 include_once 'brewsDB_connection.php';
 
-$sql = "SELECT * FROM brews WHERE status = 'bottled'";
+$sql = "SELECT * FROM brews WHERE status = 'bottled' ORDER BY bottleddate";
 $result = $connection->query($sql);
 
 if ($result->num_rows > 0) {

@@ -50,7 +50,7 @@ WHEN status = 'brewed'
 THEN DATEDIFF(DATE_ADD(brewdate, INTERVAL tilsec DAY), curdate())
 END AS daystosec
 
-FROM brews WHERE nextstep = 'secondary'";
+FROM brews WHERE nextstep = 'secondary' ORDER BY daystosec";
 
 $result = $connection->query($secinfo);
 
@@ -114,7 +114,7 @@ WHEN status = 'brewed'
 THEN DATEDIFF(DATE_ADD(brewdate, INTERVAL tildryhop DAY), curdate())
 END AS daystodh
 
-FROM brews WHERE nextstep = 'dryhop'";
+FROM brews WHERE nextstep = 'dryhop' ORDER BY daystodh";
 
 $result = $connection->query($dhinfo);
 
@@ -187,7 +187,7 @@ WHEN status='dryhopped'
 THEN DATEDIFF(DATE_ADD(dryhopdate, INTERVAL tilbottle DAY), curdate())
 END AS daystobottle
 
-FROM brews WHERE nextstep = 'bottle'";
+FROM brews WHERE nextstep = 'bottle' ORDER BY daystobottle";
 
 $result = $connection->query($botinfo);
 
@@ -253,7 +253,6 @@ WHEN nextstep = 'drink' AND cap != 'keg'
 THEN DATEDIFF(DATE_ADD(bottleddate, INTERVAL 14 DAY), curdate())
 END AS dttest
 
-FROM brews WHERE nextstep = 'drink'";
 
 $result = $connection->query($goneinfo);
 
