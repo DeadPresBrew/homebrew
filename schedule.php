@@ -253,6 +253,7 @@ WHEN nextstep = 'drink' AND cap != 'keg'
 THEN DATEDIFF(DATE_ADD(bottleddate, INTERVAL 14 DAY), curdate())
 END AS dttest
 
+FROM brews WHERE nextstep = 'drink' ORDER BY bottleddate";
 
 $result = $connection->query($goneinfo);
 
