@@ -2,7 +2,11 @@
 <html>
 <?php 
 include_once 'head.php';
+?>
 
+<body>
+<?php include_once 'nav.php'; ?>
+<?PHP
 include_once ('brewsDB_connection.php');
 
 if (isset($_POST['rollcall'])) {
@@ -44,8 +48,7 @@ if ($result === TRUE) {
 }
 }
 ?>
-<body>
-<?php include_once 'nav.php'; ?>
+
 <div class="containter">
 	<div class="col-sm-2 col-sm-offset-5">
     	<h1 class="text-center">Roll Call</h1>   
@@ -112,7 +115,7 @@ if ($result === TRUE) {
                 </div>
                 <div class="col-xs-4">
 	            	<button class="btn btn-success allfood" onClick="toggleAte(); return false;" id="allate">All Ate</button>
-                    <button class="btn btn-success hidden allfood" onClick="toggleEaten(); return false;" id="alleaten">No Eats</button>
+                    <button class="btn btn-danger hidden allfood" onClick="toggleEaten(); return false;" id="alleaten">No Eats</button>
                 </div>
             </div>
             <div class="form-group">
