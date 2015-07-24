@@ -13,8 +13,11 @@
 	
 	DATE_FORMAT(DATE(date), '%m/%d')
 	AS bpdate
-	
+		
 	FROM attendance
+	
+	WHERE DATEDIFF(CURDATE(),date) <= 90
+	
 	ORDER BY date";
 	
 	$data = $connection->query($sql);
@@ -55,6 +58,7 @@
 		FROM brews
 		RIGHT JOIN attendance
 		ON brews.brewdate=attendance.date
+		WHERE DATEDIFF(CURDATE(),attendance.date) <= 90
 		GROUP BY attendance.date ORDER BY attendance.date";
 		$events = $connection->query($sql);
 	?>
@@ -68,6 +72,7 @@
 		FROM brews
 		RIGHT JOIN attendance
 		ON brews.brewdate=attendance.date
+		WHERE DATEDIFF(CURDATE(),attendance.date) <= 90
 		GROUP BY attendance.date
 		ORDER BY attendance.date";
 		$names = $connection->query($sql);
@@ -82,6 +87,7 @@
 		FROM brews
 		RIGHT JOIN attendance
 		ON brews.secdate=attendance.date
+		WHERE DATEDIFF(CURDATE(),attendance.date) <= 90
 		GROUP BY attendance.date ORDER BY attendance.date";
 		$events = $connection->query($sql);
 	?>
@@ -95,6 +101,7 @@
 		FROM brews
 		RIGHT JOIN attendance
 		ON brews.secdate=attendance.date
+		WHERE DATEDIFF(CURDATE(),attendance.date) <= 90
 		GROUP BY attendance.date
 		ORDER BY attendance.date";
 		$names = $connection->query($sql);
@@ -109,6 +116,7 @@
 		FROM brews
 		RIGHT JOIN attendance
 		ON brews.dryhopdate=attendance.date
+		WHERE DATEDIFF(CURDATE(),attendance.date) <= 90
 		GROUP BY attendance.date ORDER BY attendance.date";
 		$events = $connection->query($sql);
 	?>
@@ -122,6 +130,7 @@
 		FROM brews
 		RIGHT JOIN attendance
 		ON brews.dryhopdate=attendance.date
+		WHERE DATEDIFF(CURDATE(),attendance.date) <= 90
 		GROUP BY attendance.date
 		ORDER BY attendance.date";
 		$names = $connection->query($sql);
@@ -136,6 +145,7 @@
 		FROM brews
 		RIGHT JOIN attendance
 		ON brews.bottleddate=attendance.date
+		WHERE DATEDIFF(CURDATE(),attendance.date) <= 90
 		GROUP BY attendance.date ORDER by attendance.date";
 		$events = $connection->query($sql);
 	?>
@@ -149,6 +159,7 @@
 		FROM brews
 		RIGHT JOIN attendance
 		ON brews.bottleddate=attendance.date
+		WHERE DATEDIFF(CURDATE(),attendance.date) <= 90
 		GROUP BY attendance.date
 		ORDER BY attendance.date";
 		$names = $connection->query($sql);
