@@ -13,9 +13,8 @@ include_once 'nav.php';
                     <th>Hop Name</th>
                     <th class="text-center">Ounces (oz)</th>
                 </tr>
-                <tr><td>Cascade</td><td class='text-center'>2.5</td></tr>
-                <tr><td>Centennial</td><td class='text-center'>2.5</td></tr>
-                <tr><td>Chinook</td><td class='text-center'>2</td></tr>
+                <tr><td>Centennial</td><td class='text-center'>1.5</td></tr>
+                <tr><td>Chinook</td><td class='text-center'>1</td></tr>
                 <tr><td>Columbus</td><td class='text-center'>3.5</td></tr>
                 <tr><td>French Aramis</td><td class='text-center'>2</td></tr>
                 <tr><td>German NB</td><td class='text-center'>1</td></tr>
@@ -27,7 +26,7 @@ include_once 'nav.php';
                 <tr><td>Summit</td><td class='text-center'>2</td></tr>
                 <tr><td>UK Kent Golding</td><td class='text-center'>0.5</td></tr>
                 <tr><td>US Fuggle</td><td class='text-center'>1</td></tr>
-                <tr><td>US Willamette</td><td class='text-center'>1</td></tr>
+                <tr><td>US Willamette</td><td class='text-center'>0.5</td></tr>
             </table>
         </div>
     </div>
